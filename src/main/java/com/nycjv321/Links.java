@@ -2,6 +2,7 @@ package com.nycjv321;
 
 import com.nycjv321.utilities.http.SimpleHttpClient;
 import com.nycjv321.utilities.http.SimpleHttpClientBuilder;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,7 +21,7 @@ public class Links {
         this.bitlyClient = bitlyClient;
     }
 
-    public URL expand(URL url) {
+    public URL expand(@NotNull URL url) {
         try {
             JSONObject json = httpClient.getJSON(
                     String.format(
@@ -38,7 +39,7 @@ public class Links {
         }
     }
 
-    public URL lookup(URL url) {
+    public URL lookup(@NotNull URL url) {
         try {
             JSONObject json = httpClient.getJSON(
                     String.format(
@@ -60,7 +61,7 @@ public class Links {
         }
     }
 
-    public URL shorten(URL url) {
+    public URL shorten(@NotNull URL url) {
         try {
             JSONObject json = httpClient.getJSON(
                     String.format(
@@ -70,7 +71,7 @@ public class Links {
                             url.toString()
                     )
             );
-            if (json.getJSONArray("data").length() > 0) {
+            if (json.get("data") instanceof JSONObject) {
                 return new URL(json.getJSONObject("data").getString("url"));
             } else {
                 if (json.getString("status_txt").equals("ALREADY_A_BITLY_LINK")) {

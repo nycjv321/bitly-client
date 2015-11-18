@@ -32,7 +32,7 @@ public class LinksTest {
         assertTrue(actual.toString().matches("http://bit.ly/[a-zA-Z0-9]+"));
     }
 
-    @Test(expectedExceptions = Links.CouldNotShorten.class)
+    @Test(expectedExceptions = Links.AlreadyABitLink.class)
     public void invalidShorten() throws Exception {
         BitlyClient.create().links().shorten(new URL("http://bit.ly/1LmwMiK"));
     }
