@@ -13,7 +13,7 @@
 The existing APIs either
 
     1. Only support OAUTH (Understandable but "actual" front end users may not be using Bit.ly)
-    2. The other existing APIs are (IMVHO) simple/have weird APIs
+    2. The other existing APIs are (IMVHO) not intuitive/are weird
     3. Why Not? (JK)
     
     
