@@ -12,16 +12,26 @@ import static org.testng.Assert.assertEquals;
 public class LinksTest {
 
     @Test
-    public void testExpand() throws Exception {
+    public void expand() throws Exception {
         URL actual = BitlyClient.create().links().expand(new URL("http://bit.ly/ze6poY"));
         URL expected = new URL("http://google.com/");
         assertEquals(actual.toString(), expected.toString());
     }
 
-    @Test(expectedExceptions = Links.CouldNotExpandException.class)
-    public void testUnableToExpand() throws Exception {
-        URL actual = BitlyClient.create().links().expand(new URL("http://bit.ly/invalid_link_dude"));
-        URL expected = new URL("http://google.com/");
+    @Test
+    public void lookup() throws Exception {
+        URL actual = BitlyClient.create().links().lookup(new URL("http://google.com"));
+        URL expected = new URL("http://bit.ly/LmvF");
         assertEquals(actual.toString(), expected.toString());
+    }
+
+    @Test(expectedExceptions = Links.InvalidLookup.class)
+    public void invalidLookup() throws Exception {
+        BitlyClient.create().links().lookup(new URL("http://google.com/invalid_link_dude"));
+    }
+
+    @Test(expectedExceptions = Links.CouldNotExpandException.class)
+    public void unableToExpand() throws Exception {
+        BitlyClient.create().links().expand(new URL("http://bit.ly/invalid_link_dude"));
     }
 }

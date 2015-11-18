@@ -1,12 +1,13 @@
 # A Simple Java Client for Bit.yl
 ## Example Usage
 
-    BitlyClient.create().links().expand(new URL("http://bit.ly/ze6poY")); \\ returns http://google.com/
+    // Expand the bit.ly using system arg values
+    BitlyClient.create().links().expand(new URL("http://bit.ly/ze6poY")); // returns http://google.com/
+    // Expand the bit.ly using variables
+    BitlyClient.create(userName, password).links().expand(new URL("http://bit.ly/ze6poY"));  // returns http://google.com/
+    // Query for bit.ly link 
+    BitlyClient.create().links().lookup(new URL("http://google.com")) // returns "http://bit.ly/ze6poY
     
-  or 
-    
-    BitlyClient.create(userName, password).links().expand(new URL("http://bit.ly/ze6poY"));  \\ returns http://google.com/
-
   See the unit tests. They explain everything.
   
 ## Why?  
