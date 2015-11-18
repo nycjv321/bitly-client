@@ -13,6 +13,9 @@ public class BitlyClient {
 
     private BitlyClient(@NotNull String userName, @NotNull String password) {
         accessToken = new TokenGenerator(userName, password).get();
+        if (accessToken.contains("RATE_LIMIT_EXCEEDED")) {
+            throw new RateLimitExceeded();
+        }
     }
 
     public static BitlyClient create() {
@@ -33,5 +36,8 @@ public class BitlyClient {
 
     public Links links() {
         return new Links(this);
+    }
+
+    private class RateLimitExceeded extends RuntimeException {
     }
 }

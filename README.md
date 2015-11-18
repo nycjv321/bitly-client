@@ -7,6 +7,13 @@
     BitlyClient.create(userName, password).links().expand(new URL("http://bit.ly/ze6poY"));  // returns http://google.com/
     // Query for bit.ly link 
     BitlyClient.create().links().lookup(new URL("http://google.com")) // returns "http://bit.ly/ze6poY
+    // Shorten a link
+    BitlyClient.create().links().shorten(new URL("http://google.com")); // returns a bit.ly link
+    
+    // You can also create an instance of "Links" and then use that to interact with Bit.ly links. For Example:
+    Links links = BitlyClient.create().links();
+    links.expand(new URL("http://bit.ly/ze6poY")); // returns http://google.com/
+
     
   See the unit tests. They explain everything.
   
