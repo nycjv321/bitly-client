@@ -7,13 +7,13 @@
     
     BitlyClient.create(userName, password).links().expand(new URL("http://bit.ly/ze6poY"));  \\ returns http://google.com/
 
-  See the unit tests. They explain everything
+  See the unit tests. They explain everything.
   
 ## Why?  
-The existing APIs either
+The existing APIs either:
 
-    1. Only support OAUTH (Understandable but "actual" front end users may not be using Bit.ly)
-    2. The other existing APIs are (IMVHO) not intuitive/are weird
+    1. Only support OAUTH (Understandable but "actual" front end users may not be the only consumers of Bit.ly)
+    2. The other existing APIs are (IMVHO) not very intuitive
     3. Why Not? (JK)
     
     
