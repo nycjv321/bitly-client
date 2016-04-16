@@ -1,4 +1,4 @@
-# A Simple Java Client for Bit.yl
+# A Simple Java Client for Bit.ly
 ## Example Usage
 
     // Expand the bit.ly using system arg values
