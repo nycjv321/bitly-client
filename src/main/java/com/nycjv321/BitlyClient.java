@@ -3,7 +3,7 @@ package com.nycjv321;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Hello world!
+ * Bit.ly client app.
  */
 public class BitlyClient {
 
